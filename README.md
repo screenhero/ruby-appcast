@@ -38,7 +38,7 @@ puts appcast.to_s
       <title>MyAwesomeApp 1.0.1</title>
       <sparkle:releaseNotesLink>http://myawesomeapp.com/update/release_notes.html</sparkle:releaseNotesLink>
       <pubDate>Thu, 07 Aug 2014 22:12:57 -0700</pubDate>
-      <guid isPermaLink='false'>Screenhero 1.0.0.1</guid>
+      <guid isPermaLink='false'>MyAwesomeApp 1.0.1</guid>
       <enclosure type='application/dmg' sparkle:version='1.0.1' length='1031984' sparkle:dsaSignature='MEQCIDbfctm3pCqJw2SSbZGHyrH3XKtvsw/VICvAHVB3CBRsAiAcd6RDoRwi
 8ACxEHsNGeepi5A0dZV0KOXT4pJm70AqoA==
 ' url='http://myawesomeapp.com/update/MyAwesomeApp-1.0.1.dmg'/>
