@@ -1,5 +1,4 @@
 require 'RedCloth'
-require 'erb'
 
 module Screenhero
   module Sparkle
