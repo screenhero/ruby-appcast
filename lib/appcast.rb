@@ -37,8 +37,6 @@ module Screenhero
             signature = dsa.sign(digest, data)
             @update_signature = Base64.encode64(signature)
             @update_length = data.length
-            puts @update_length
-            puts @update_signature
           end
         end
 
