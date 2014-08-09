@@ -20,6 +20,8 @@ module Screenhero
       def to_s
         "<html>" + @head + @body + "</html>"
       end
+
+      alias_method :to_html, :to_s
     end
   end
 end
