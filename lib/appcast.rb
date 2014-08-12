@@ -31,11 +31,14 @@ module Screenhero
 
         def generate_dsa_signature!
           dsa = OpenSSL::PKey::DSA.new(@dsa_priv)
+          sha1 = OpenSSL::Digest::SHA1.new
           digest = OpenSSL::Digest::DSS1.new
+          cksum = nil
           File.open(@update_path, File::RDONLY, :binmode => true) do |f|
             data = f.read
-            signature = dsa.sign(digest, data)
-            @update_signature = Base64.encode64(signature)
+            cksum = sha1.digest(data)
+            signature = dsa.sign(digest, cksum)
+            @update_signature = Base64.encode64(signature).gsub(/\s+/, '')
             @update_length = data.length
           end
         end
@@ -104,6 +107,7 @@ module Screenhero
         channel.add_element("link").add_text(@appcast_url)
 
         atom = channel.add_element("atom:link")
+        atom.attributes["rel"] = "self"
         atom.attributes["type"] = "application/rss+xml"
         atom.attributes["href"] = @appcast_url
       end
