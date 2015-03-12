@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name	= 'ruby-appcast'
-  s.version	= '1.0.0'
-  s.date	= '2013-08-08'
+  s.version	= '2.0.0'
+  s.date	= '2015-03-12'
   s.summary	= 'Simple appcast/release notes generator for Sparkle'
   s.description	= ''
   s.authors	= ['Jason DiCioccio']
