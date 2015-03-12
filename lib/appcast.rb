@@ -8,7 +8,7 @@ module Screenhero
       class Item
         def initialize(name: '', update_path: '', version: '0.0.0',
           publish_date: Time.now, update_url: '', release_notes_url: '',
-          dsa_priv: nil)
+          dsa_priv: nil, minimum_system_version: nil)
           raise ArgumentError, "Missing dsa_priv parameter" if !dsa_priv
 
           @name = name
@@ -21,6 +21,7 @@ module Screenhero
           @dsa_signature = nil
           @update_signature = nil
           @update_length = nil
+          @minimum_system_version = minimum_system_version
           @xml = REXML::Element.new("item")
 
           generate_dsa_signature!
@@ -47,6 +48,7 @@ module Screenhero
           item = @xml
 
           item.add_element("title").add_text("#{@name} #{@version}")
+          item.add_element("sparkle:minimumSystemVersion").add_text(@minimum_system_version) if @minimum_system_version
           item.add_element("sparkle:releaseNotesLink").add_text("#{@release_notes_url}")
           item.add_element("pubDate").add_text(@publish_date.strftime("%a, %d %h %Y %H:%M:%S %z"))
 
