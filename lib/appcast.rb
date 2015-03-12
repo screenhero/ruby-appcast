@@ -120,6 +120,10 @@ module Screenhero
           update_url: update_url, dsa_priv: @dsa_priv).xml
       end
 
+      def add_item(item)
+        @xml.elements["/rss/channel"] << item.xml
+      end
+
       def to_s
         formatter = REXML::Formatters::Pretty.new(2)
         formatter.compact = true
